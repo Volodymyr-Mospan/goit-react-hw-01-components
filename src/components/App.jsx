@@ -11,7 +11,6 @@ export const App = () => {
         flexWrap: 'wrap',
         gap: '20px',
         height: '100vh',
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
