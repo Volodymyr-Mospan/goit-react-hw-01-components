@@ -1,4 +1,4 @@
-.statistics {
+.transaction-history {
   width: calc((100% - (3 * 35px)) / 4);
 
   border: 1px solid rgba(0, 0, 0, 0.6);
@@ -14,24 +14,21 @@
 
   overflow: hidden;
   min-width: min-content;
+  border-collapse: collapse;
 }
 
-.title {
+.transaction-history__title {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  padding: 10px 50px;
+  background-color: #bfd2fcad;
 }
 
-.stat-list {
-  margin-top: 25px;
-  display: flex;
+.transaction-history__data {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  padding: 10px 50px;
+  text-transform: capitalize;
 }
 
-.item {
-  padding: 10px;
-  flex-grow: 1;
-}
-
-.label {
-  display: block;
-}
-
-.percentage {
+.transaction-history__row:nth-child(2n) {
+  background-color: #bfd2fc62;
 }

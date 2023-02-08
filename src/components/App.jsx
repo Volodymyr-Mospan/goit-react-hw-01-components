@@ -1,9 +1,12 @@
 import { Profile } from 'components/Profile/Profile';
 import { Statistics } from 'components/Statistics/Statistics';
 import { FriendList } from 'components/FriendList/FriendList';
+import { TransactionHistory } from 'components/TransactionHistory/TransactionHistory';
+
 import user from '../input_data/user.json';
 import stats from '../input_data/data.json';
 import friends from '../input_data/friends.json';
+import transactionItems from '../input_data/transactions.json';
 
 export const App = () => {
   return (
@@ -12,7 +15,7 @@ export const App = () => {
         display: 'flex',
         flexWrap: 'wrap',
         gap: '20px',
-        height: '100vh',
+        padding: '20px',
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
@@ -28,6 +31,7 @@ export const App = () => {
       />
       <Statistics title="Upload stats" stats={stats} />
       <FriendList friends={friends} />
+      <TransactionHistory items={transactionItems} />
     </div>
   );
 };
