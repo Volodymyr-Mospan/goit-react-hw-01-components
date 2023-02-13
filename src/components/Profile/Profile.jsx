@@ -1,32 +1,35 @@
 import PropTypes from 'prop-types';
-import css from './Profile.module.css';
+import { nanoid } from 'nanoid';
+import {
+  ProfileCard,
+  ProfileAva,
+  ProfileName,
+  ProfileTag,
+  ProfileStatsList,
+  ProfileStatsItem,
+  ProfileStatsLable,
+} from './Profile.styled';
 
-// console.log(css);
+// import css from './Profile.module.css';
 
 export const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
-    <div className={css.profile}>
-      <div className={css.description}>
-        <img src={avatar} alt="User avatar" className={css.avatar} />
-        <p className={css.name}>{username}</p>
-        <p className={css.tag}>@{tag}</p>
-        <p className={css.location}>{location}</p>
+    <ProfileCard>
+      <div>
+        <ProfileAva src={avatar} alt="User avatar" />
+        <ProfileName>{username}</ProfileName>
+        <ProfileTag>@{tag}</ProfileTag>
+        <p>{location}</p>
       </div>
-      <ul className={css.stats}>
-        <li className={css.stats__item}>
-          <span className={css.label}>Followers</span>
-          <span className={css.quantity}>{stats.followers}</span>
-        </li>
-        <li className={css.stats__item}>
-          <span className={css.label}>Views</span>
-          <span className={css.quantity}>{stats.views}</span>
-        </li>
-        <li className={css.stats__item}>
-          <span className={css.label}>Likes</span>
-          <span className={css.quantity}>{stats.likes}</span>
-        </li>
-      </ul>
-    </div>
+      <ProfileStatsList>
+        {Object.entries(stats).map(stat => (
+          <ProfileStatsItem key={nanoid()}>
+            <ProfileStatsLable>{stat[0]}</ProfileStatsLable>
+            <span>{stat[1]}</span>
+          </ProfileStatsItem>
+        ))}
+      </ProfileStatsList>
+    </ProfileCard>
   );
 };
 
